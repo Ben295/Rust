@@ -5,6 +5,7 @@ edition.workspace = true
 authors.workspace = true
 
 [dependencies]
+rand = "0.8"
 
 [lints]
 workspace = true
