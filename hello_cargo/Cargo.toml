@@ -7,5 +7,18 @@ authors.workspace = true
 [dependencies]
 rand = "0.8"
 
+# Dev-dependencies are only compiled for tests, examples, and benchmarks.
+# They're never linked into the release binary, so adding heavy testing
+# crates here has zero impact on the shipped artifact.
+[dev-dependencies]
+criterion = "0.5"
+
+# Declare each bench file under `benches/`. `harness = false` is required
+# because criterion provides its own `main` (via the `criterion_main!`
+# macro) and the default `libtest`-based bench harness is nightly-only.
+[[bench]]
+name = "guess_bench"
+harness = false
+
 [lints]
 workspace = true
