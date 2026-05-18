@@ -1,0 +1,17 @@
+[workspace]
+resolver = "3"
+members = ["hello_world", "hello_cargo"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Ben Hawes"]
+
+# Lints enforced across every workspace member.
+# Members opt in with `[lints] workspace = true` in their own Cargo.toml.
+[workspace.lints.rust]
+unused_must_use = "deny"     # don't silently drop Result / Future / etc.
+
+# Centralised dependency versions go here once we add any:
+# [workspace.dependencies]
+# serde = { version = "1", features = ["derive"] }
